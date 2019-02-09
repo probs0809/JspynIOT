@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/addButton2"
+        android:title="Button"
+        />
+    <item
+        android:id="@+id/addSwitch2"
+        android:title="Add Switch"
+
+        />
+    <item
+        android:id="@+id/addSeekbar2"
+        android:title="Add Seekbar"
+        />
+    <item
+        android:id="@+id/Submit2"
+        android:title="Submit"
+
+        />
+</menu>

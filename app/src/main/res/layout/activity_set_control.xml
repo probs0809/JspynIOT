@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    android:id="@+id/setControl">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <customfonts.MyTextView
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/circleangle"
+            android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Drag Here To Remove"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            />
+
+        <customfonts.MyTextView
+            android:id="@+id/bac2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/menuico"
+            android:backgroundTint="#fff"
+            android:foregroundGravity="left"
+            android:padding="16dp"
+            android:textColor="#fff"
+            android:textSize="16dp"
+            tools:background="@drawable/menuico"
+            />
+
+        <LinearLayout
+            android:id="@+id/buttonForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutOne"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <customfonts.MyEditText
+                android:id="@+id/vName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Name For Button"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textColor="#ADCCE2"
+                android:textColorHint="#ADCCE2"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <Spinner
+                android:id="@+id/buttonPinNo"
+                android:layout_width="304dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/cardview_shadow_end_color"
+                android:entries="@color/cardview_light_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <customfonts.MyTextView
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/angle"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/switchForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutOne"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <customfonts.MyEditText
+                android:id="@+id/vsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Name For Button"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textColor="#ADCCE2"
+                android:textColorHint="#ADCCE2"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <Spinner
+                android:id="@+id/switchPinNo"
+                android:layout_width="304dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="40dp"
+                android:entries="@color/cardview_light_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <customfonts.MyTextView
+                android:id="@+id/submitSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/angle"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/seekForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutOne"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <customfonts.MyEditText
+                android:id="@+id/vsName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="35dp"
+                android:background="#0000"
+                android:hint="Name For SeekBar"
+                android:inputType="text"
+                android:padding="16dp"
+                android:textColor="#ADCCE2"
+                android:textColorHint="#ADCCE2"
+                android:textSize="16dp" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <Spinner
+                android:id="@+id/seekPinNo"
+                android:layout_width="304dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/cardview_shadow_end_color"
+                android:entries="@color/cardview_light_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="#ADCCE2" />
+
+            <customfonts.MyTextView
+                android:id="@+id/submitSeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/angle"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutOne">
+
+
+            <RelativeLayout
+                android:id="@+id/layoutTwo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp">
+
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+        <com.crystal.crystalpreloaders.widgets.CrystalPreloader
+            android:id="@+id/loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            app:crs_pl_size="extra_large"
+            app:crs_pl_fg_color="#ffffff"
+            app:crs_pl_style="expandable_balls" />
+    </RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nc2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@drawable/bg"
+        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+        app:itemTextColor="#fff"
+        app:menu="@menu/control">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
