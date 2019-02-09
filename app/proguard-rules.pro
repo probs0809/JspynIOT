@@ -22,3 +22,6 @@
 
 -keepattributes Signature
 -keepattributes *Annotation*
+-keep class cn.pedant.SweetAlert.Rotate3dAnimation {
+    public <init>(...);
+ }

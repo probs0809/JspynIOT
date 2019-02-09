@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Animation.AppCompat.Dialog"
+    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backGround">
@@ -29,99 +30,104 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                app:mtf_labelColor="#666"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/mtf1"
+                >
             <customfonts.MyEditText
                 android:id="@+id/ssid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/view"
-                android:layout_below="@+id/textView2"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="27dp"
+
+
+
                 android:background="#0000"
                 android:hint="SSID"
                 android:inputType="text"
                 android:padding="16dp"
-                android:textColor="#ffccff "
-                android:textColorHint="#ffccff "
+                android:textColor="#000000 "
+                android:textColorHint="#000000 "
                 android:textSize="16dp" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/ssid"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@color/cardview_light_background" />
 
+
+
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mtf1"
+                app:mtf_labelColor="#666"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/mtf2"
+                >
             <customfonts.MyEditText
                 android:id="@+id/wPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/view2"
-                android:layout_alignStart="@+id/view2"
-                android:layout_below="@+id/view"
-                android:layout_marginTop="24dp"
+
                 android:background="#0000"
                 android:hint="WiFi PASSWORD"
                 android:inputType="textPassword"
                 android:padding="16dp"
-                android:textColor="#ffccff "
-                android:textColorHint="#ffccff "
+                android:textColor="#000000 "
+                android:textColorHint="#000000 "
                 android:textSize="16dp" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/wPassword"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@color/cardview_light_background" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mtf2"
+                app:mtf_labelColor="#666"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/mtf3"
+                >
             <customfonts.MyEditText
                 android:id="@+id/sensorId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/view3"
-                android:layout_alignStart="@+id/view3"
-                android:layout_below="@+id/view2"
-                android:layout_marginTop="24dp"
                 android:background="#0000"
                 android:hint="Custum Sensor Name"
                 android:inputType="text"
                 android:padding="16dp"
-                android:textColor="#ffccff "
-                android:textColorHint="#ffccff "
+                android:textColor="#000000 "
+                android:textColorHint="#000000 "
                 android:textSize="16dp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@+id/sensorId"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@color/cardview_light_background" />
 
-            <Spinner
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/sensor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/view4"
                 android:layout_alignStart="@+id/view4"
-                android:layout_below="@+id/view3"
+                android:layout_below="@+id/mtf3"
                 android:layout_marginTop="24dp"
-                android:background="#0000"
                 android:inputType="text"
                 android:padding="16dp"
-                android:textColor="@color/cardview_light_background"
+                app:ms_background_color="@color/backGround"
+                app:ms_text_color="#ffff"
                 android:textColorHint="#ADCCE2"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <View
                 android:id="@+id/view4"
@@ -132,23 +138,23 @@
                 android:layout_marginRight="40dp"
                 android:background="@color/cardview_light_background" />
 
-            <customfonts.MyTextView
+            <TextView
                 android:id="@+id/config"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/view3"
-                android:layout_alignStart="@+id/view3"
-                android:layout_below="@+id/view3"
-                android:layout_marginTop="77dp"
+                android:layout_alignEnd="@+id/mtf3"
+                android:layout_alignStart="@+id/mtf3"
+                android:layout_below="@+id/view4"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/angle2"
-                android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+                android:backgroundTint="@color/colorPrimary"
                 android:drawableRight="@drawable/config"
-                android:drawableTint="@color/cardview_light_background"
+                android:drawableTint="@color/backGround"
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="Configure"
                 android:textAlignment="center"
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/backGround"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -156,19 +162,12 @@
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/progressBar2"
+
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/wifi" />
 
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:max="100"
-                android:progress="100" />
+
 
 
         </RelativeLayout>

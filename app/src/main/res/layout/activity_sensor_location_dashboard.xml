@@ -10,24 +10,124 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default">
+        android:background="@color/colorPrimary">
 
 
-        <ScrollView
+        <customfonts.MyTextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="37dp"
+            android:foregroundGravity="left"
+            android:padding="10dp"
+            android:text="jspyn"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+        <RelativeLayout
             android:id="@+id/scrollView3"
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/addDevice">
+            android:background="@color/backGround"
+            >
 
-            <TableLayout
-                android:id="@+id/tableLayout"
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/sensorType"
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:ms_text_color="@color/colorPrimaryDark"
+                app:ms_background_color="@color/backGround"
+                app:ms_hint_color="@color/colorAccent"
+                app:ms_hint="Select Sensor"
+                />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sensorType"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/selectSensor"
+                android:layout_below="@+id/view3"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                app:ms_text_color="@color/colorPrimaryDark"
+                app:ms_background_color="@color/backGround"
+                app:ms_hint_color="@color/white"
+                app:ms_hint="Select Location"
+                />
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/selectSensor"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:layout_below="@+id/view"
+                android:id="@+id/selectDate"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_text_color="@color/colorPrimaryDark"
+                app:ms_background_color="@color/backGround"
+                app:ms_hint_color="@color/white"
+                android:enabled="false"
+                app:ms_hint="Select Date"
+                />
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/selectDate"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                />
+
+            <Button
+                android:id="@+id/Submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view2"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                />
 
 
-            </TableLayout>
 
-        </ScrollView>
+        </RelativeLayout>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageView2"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-20dp"
+
+            app:srcCompat="@drawable/jslogo"
+            />
+
+
 
         <com.crystal.crystalpreloaders.widgets.CrystalPreloader
             android:id="@+id/loader"
@@ -37,7 +137,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             app:crs_pl_size="extra_large"
-            app:crs_pl_fg_color="#ffffff"
+            app:crs_pl_fg_color="@color/accent"
             app:crs_pl_style="expandable_balls" />
 
     </RelativeLayout>

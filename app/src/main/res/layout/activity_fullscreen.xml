@@ -25,7 +25,7 @@
         android:layout_gravity="center"
         android:keepScreenOn="true"
         android:text="jspyn"
-        android:textColor="#30d5fb"
+        android:textColor="@color/colorPrimary"
         android:textSize="100sp"
         android:textStyle="bold" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backGround"
+    android:background="@color/backgroundTwo"
     android:id="@+id/dl2">
 
     <RelativeLayout
@@ -16,19 +16,19 @@
         <customfonts.MyTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="51dp"
-            android:background="@drawable/circleangle"
-            android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+            android:background="@drawable/angle"
+            android:backgroundTint="#000F10"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:padding="10dp"
             android:text="Jspyn"
             android:textColor="#fff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textSize="40sp"
+            android:textStyle="bold" >
+
+        </customfonts.MyTextView>
 
         <customfonts.MyTextView
             android:id="@+id/bac"
@@ -52,14 +52,13 @@
             android:id="@+id/scroll_view2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/layoutOne">
+            >
 
 
             <RelativeLayout
                 android:id="@+id/layout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
                 android:visibility="visible">
 
             </RelativeLayout>
@@ -73,7 +72,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             app:crs_pl_size="extra_large"
-            app:crs_pl_fg_color="#ffffff"
+            app:crs_pl_fg_color="@color/colorAccent"
             app:crs_pl_style="expandable_balls" />
 
     </RelativeLayout>

@@ -1,4 +1,4 @@
-package app.jspyn.jspyniot;
+package app.jspyn.jspyniot.non_activity;
 
 /**
  * Created by prabodhmayekar on 31/12/18.

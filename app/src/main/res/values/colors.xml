@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#29293d</color>
-    <color name="colorPrimaryDark">#29293d</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="backGround">#29293d</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#2186F3</color>
+    <color name="colorAccent">#A5C9ff</color>
+    <color name="backGround">#f8f8ff</color>
+    <color name="backgroundTwo">#222222</color>
     <color name="red">#FF0000</color>
     <color name="white">#ffff</color>
-
-    <color name="black_overlay">#66000000</color>
+    <color name="accent">#A5FFC9</color>
+    <color name="black_overlay">#c7201f1f</color>
+    <color name="textColor">#ADCCE2</color>
+    <color name="hintColor">#ADCCE2</color>
 </resources>

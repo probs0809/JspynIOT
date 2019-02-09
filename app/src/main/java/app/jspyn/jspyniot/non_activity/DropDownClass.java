@@ -1,7 +1,4 @@
-package app.jspyn.jspyniot;
-
-import android.view.View;
-import android.widget.AdapterView;
+package app.jspyn.jspyniot.non_activity;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 

@@ -3,6 +3,8 @@
 buildscript {
     
     repositories {
+        mavenCentral()
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
     }
@@ -14,6 +16,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.google.gms:google-services:4.2.0'
         classpath 'com.google.firebase:firebase-plugins:1.1.5'
+
 
     }
 }
