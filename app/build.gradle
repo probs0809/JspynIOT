@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.crystal:crystalpreloaders:1.0.0'
     implementation 'jp.wasabeef:recyclerview-animators:1.1.0@aar'
     compile project(path: ':MaterialDesign')
+    compile project(path: ':jspynio')
     implementation 'com.github.florent37:materialtextfield:1.0.7'
     implementation 'tyrantgit:explosionfield:1.0.1'
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'

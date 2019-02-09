@@ -64,14 +64,16 @@
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageButton
+
+            <ImageView
                 android:id="@+id/imageButton0"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="0dp"
-                android:background="#fff"
-                app:srcCompat="@mipmap/ic_launcher_round"
-                />
+                android:background="@color/backGround"
+
+
+                materialdesign:srcCompat="@mipmap/ic_launcher_foreground" />
 
             <customfonts.MyTextView
                 android:id="@+id/d10"

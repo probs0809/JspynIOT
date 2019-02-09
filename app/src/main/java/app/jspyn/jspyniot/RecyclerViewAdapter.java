@@ -176,7 +176,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
 
     private void configure(final String API) {
         database = FirebaseDatabase.getInstance();
-        smart_home_sensor_list.add("Select Item");
+        smart_home_sensor_list.add("Select Sensor");
         myRef = database.getReference("jspynData/smartHomeSensors");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

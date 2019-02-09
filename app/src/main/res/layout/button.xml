@@ -9,12 +9,12 @@
     >
 
     <View
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="1dp"
         android:background="@color/accent" />
 
     <View
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="1dp"
         android:layout_gravity="bottom"
         android:background="@color/accent" />
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:background="@color/accent"
         android:backgroundTint="@color/black_overlay"
         android:enabled="false"
@@ -53,7 +53,7 @@
         android:layout_marginStart="5dp"
         android:text=""
         android:textColor="@color/accent"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
 

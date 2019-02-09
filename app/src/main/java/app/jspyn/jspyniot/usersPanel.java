@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.tnlsystems.jspynio.Jspyn;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -151,9 +152,11 @@ public class usersPanel extends AppCompatActivity {
                                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                     if (dataSnapshot.getValue() != null) {
                                                                         if (dataSnapshot.getValue().toString().equals("0")) {
+
                                                                             secRef.setValue(1);
                                                                             gRef = database.getReference("GPIO/" + API + "/" + appPost.Pin);
                                                                             gRef.setValue(1);
+                                                                            new Jspyn(API).write(appPost.Pin+"1");
                                                                             ButtonState.setText("On");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
                                                                             button_.setBackgroundColor(getResources().getColor(R.color.accent, getTheme()));
@@ -161,6 +164,7 @@ public class usersPanel extends AppCompatActivity {
                                                                             secRef.setValue(0);
                                                                             gRef = database.getReference("GPIO/" + API + "/" + appPost.Pin);
                                                                             gRef.setValue(0);
+                                                                            new Jspyn(API).write(appPost.Pin+"0");
                                                                             ButtonState.setText("OFF");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                                                             button_.setBackgroundColor(getResources().getColor(R.color.colorAccent, getTheme()));
@@ -227,6 +231,7 @@ public class usersPanel extends AppCompatActivity {
                                                             public void run() {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(1);
+                                                                new Jspyn(API).write(appPost.Pin+"1");
                                                                 gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
                                                                 gRef.setValue(1);
                                                             }
@@ -243,6 +248,7 @@ public class usersPanel extends AppCompatActivity {
                                                             public void run() {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(0);
+                                                                new Jspyn(API).write(appPost.Pin+"0");
                                                                 gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
                                                                 gRef.setValue(0);
                                                             }
@@ -301,6 +307,16 @@ public class usersPanel extends AppCompatActivity {
                                                             stateSeek.setText(Integer.toString(Value));
                                                             secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                             secRef.setValue( Value);
+                                                            if (Value/10 < 1){
+                                                                new Jspyn(API).write(appPost.Pin+"00"+Integer.toString(Value));
+                                                            }
+                                                            else if (Value/100 < 1){
+                                                                new Jspyn(API).write(appPost.Pin+"0"+Integer.toString(Value));
+                                                            }
+                                                            else{
+                                                                new Jspyn(API).write(appPost.Pin+Integer.toString(Value));
+                                                            }
+
                                                             gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
                                                             gRef.setValue( Value);
                                                         }
@@ -424,7 +440,7 @@ public class usersPanel extends AppCompatActivity {
     }
 
     public void configure() {
-        sensorList.add("Select Item");
+        sensorList.add("Select Sensor");
         myRef = database.getReference("jspynData/smartHomeSensors");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
