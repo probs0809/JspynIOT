@@ -49,7 +49,7 @@ public class usersPanel extends AppCompatActivity {
     View home;
     TextView title;
     FirebaseDatabase database;
-    DatabaseReference myRef, secRef,gRef;
+    DatabaseReference myRef, secRef;
     FirebaseUser user;
     String deviceName;
     LayoutInflater inflater;
@@ -154,16 +154,12 @@ public class usersPanel extends AppCompatActivity {
                                                                         if (dataSnapshot.getValue().toString().equals("0")) {
 
                                                                             secRef.setValue(1);
-                                                                            gRef = database.getReference("GPIO/" + API + "/" + appPost.Pin);
-                                                                            gRef.setValue(1);
                                                                             new Jspyn(API).write(appPost.Pin+"1");
                                                                             ButtonState.setText("On");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
                                                                             button_.setBackgroundColor(getResources().getColor(R.color.accent, getTheme()));
                                                                         } else if (dataSnapshot.getValue().toString().equals("1")) {
                                                                             secRef.setValue(0);
-                                                                            gRef = database.getReference("GPIO/" + API + "/" + appPost.Pin);
-                                                                            gRef.setValue(0);
                                                                             new Jspyn(API).write(appPost.Pin+"0");
                                                                             ButtonState.setText("OFF");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
@@ -232,8 +228,6 @@ public class usersPanel extends AppCompatActivity {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(1);
                                                                 new Jspyn(API).write(appPost.Pin+"1");
-                                                                gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
-                                                                gRef.setValue(1);
                                                             }
                                                         }).start();
 
@@ -249,8 +243,7 @@ public class usersPanel extends AppCompatActivity {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(0);
                                                                 new Jspyn(API).write(appPost.Pin+"0");
-                                                                gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
-                                                                gRef.setValue(0);
+
                                                             }
                                                         }).start();
 
@@ -316,9 +309,6 @@ public class usersPanel extends AppCompatActivity {
                                                             else{
                                                                 new Jspyn(API).write(appPost.Pin+Integer.toString(Value));
                                                             }
-
-                                                            gRef = database.getReference("GPIO/"+API+"/"+appPost.Pin);
-                                                            gRef.setValue( Value);
                                                         }
                                                     },2000);
                                                 }

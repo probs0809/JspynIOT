@@ -237,7 +237,7 @@ public class dashBoard extends AppCompatActivity {
                         @Override
                         public void run() {
                             Request request = new Request.Builder()
-                                    .url("https://us-central1-jspyn-39604.cloudfunctions.net/jspynio/api")
+                                    .url("http://35.200.218.116/api")
                                     .build();
 
                             Call call = client.newCall(request);

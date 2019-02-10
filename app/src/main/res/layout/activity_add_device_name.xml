@@ -36,7 +36,6 @@
             android:padding="10dp"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHint="#000"
-
             android:textSize="16sp" />
 
         </com.github.florent37.materialtextfield.MaterialTextField>
