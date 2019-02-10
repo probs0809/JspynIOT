@@ -66,18 +66,13 @@ public class usersPanel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_panel);
-
-
         loader = findViewById(R.id.loader);
-
         dl = findViewById(R.id.dl2);
         final NavigationView navigationView = findViewById(R.id.nv2);
-
         handler = new Handler(this.getMainLooper());
         Intent j = getIntent();
         deviceName = j.getStringExtra("deviceName");
         String deviceNameTwo = deviceName;
-
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
@@ -87,6 +82,7 @@ public class usersPanel extends AppCompatActivity {
         home = findViewById(R.id.bac);
         title = findViewById(R.id.title);
         title.setText(deviceNameTwo.replace("-"," ").toUpperCase());
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -466,8 +462,6 @@ public class usersPanel extends AppCompatActivity {
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 final String ssidS = ssid.getText().toString();
                 final String passwordS = password.getText().toString();
                 final String customSName = sName.getText().toString();
@@ -504,15 +498,11 @@ public class usersPanel extends AppCompatActivity {
     }
 
     private void postRequest(String postUrl, String postBody) throws IOException {
-
         OkHttpClient client = new OkHttpClient();
-
         //RequestBody body = RequestBody.create(JSON, postBody);
-
         Request request = new Request.Builder()
                 .url(postUrl + "?" + postBody)
                 .build();
-
         Call call = client.newCall(request);
 
         Response response;
