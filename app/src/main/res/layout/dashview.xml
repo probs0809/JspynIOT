@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.daimajia.swipe.SwipeLayout
@@ -9,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         >
 
         <!-- Bottom View Start-->
@@ -26,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/green"
                 materialdesign:iconDrawable="@android:drawable/ic_menu_edit"
-                android:text="Edit"
+
                 />
 
             <com.gc.materialdesign.views.ButtonIcon
@@ -34,7 +33,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@color/main_blue_stroke_color"
-                android:text="Configure"
                 materialdesign:iconDrawable="@drawable/config" />
 
             <com.gc.materialdesign.views.ButtonIcon
@@ -43,7 +41,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/red"
                 materialdesign:iconDrawable="@android:drawable/ic_menu_delete"
-                android:text="Delete"
                 />
 
             <com.gc.materialdesign.views.ButtonIcon
@@ -51,7 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@color/main_green_stroke_color"
-                android:text="asc"
                 materialdesign:iconDrawable="@android:drawable/ic_menu_view" />
 
 
@@ -63,7 +59,7 @@
         <LinearLayout
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="100dp">
 
             <ImageView
                 android:id="@+id/imageButton0"
@@ -71,15 +67,13 @@
                 android:layout_height="80dp"
                 android:layout_margin="0dp"
                 android:background="@color/backGround"
-
-
-                materialdesign:srcCompat="@mipmap/ic_launcher_foreground" />
+                materialdesign:srcCompat="@mipmap/ic_launcher_foreground"
+                android:contentDescription="@string/todo" />
 
             <customfonts.MyTextView
                 android:id="@+id/d10"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:background="@drawable/angle2"
@@ -87,7 +81,6 @@
                 android:backgroundTintMode="src_in"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="My Device"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#000"
                 android:textSize="35sp"

@@ -9,11 +9,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
 
 
-        <TextView
+        <customfonts.MyTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -29,7 +29,7 @@
             android:textSize="40sp"
             android:textStyle="bold" >
 
-        </TextView>
+        </customfonts.MyTextView>
 
         <FrameLayout
             android:id="@+id/scroll_view2"
@@ -42,7 +42,6 @@
                 android:id="@+id/layout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
                 android:visibility="visible">
 
             </RelativeLayout>

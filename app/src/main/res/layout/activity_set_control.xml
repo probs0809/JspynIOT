@@ -27,19 +27,19 @@
                 android:id="@+id/vName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="35dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="35dp"
                 android:background="#0000"
-                android:hint="Name For Button"
+                android:hint="@string/name_for_text_button"
                 android:inputType="text"
                 android:padding="16dp"
                 android:textColor="@color/textColor"
                 android:textColorHint="@color/hintColor"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:background="#ADCCE2" />
@@ -48,35 +48,34 @@
                 android:id="@+id/buttonPinNo"
                 android:layout_width="304dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:background="@color/cardview_shadow_end_color"
                 android:entries="@color/cardview_light_background"
                 app:ms_background_color="@color/backgroundTwo"
-                app:ms_text_color="#ffffff" />
+                app:ms_text_color="@color/backGround" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:background="#ADCCE2" />
 
-            <customfonts.MyTextView
+            <TextView
                 android:id="@+id/submitButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/angle"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/backGround"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -91,19 +90,19 @@
                 android:id="@+id/vsName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="35dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="35dp"
                 android:background="#0000"
-                android:hint="Name For Button"
+                android:hint="@string/name_for_switch"
                 android:inputType="text"
                 android:padding="16dp"
                 android:textColor="#ADCCE2"
                 android:textColorHint="#ADCCE2"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:background="#ADCCE2" />
@@ -112,14 +111,14 @@
                 android:id="@+id/switchPinNo"
                 android:layout_width="304dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:entries="@color/cardview_light_background"
-                app:ms_background_color="@color/backGround"
-                app:ms_text_color="#ffffff" />
+                app:ms_background_color="@color/backgroundTwo"
+                app:ms_text_color="@color/backGround" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:background="#ADCCE2" />
@@ -128,17 +127,16 @@
                 android:id="@+id/submitSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/angle"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Submit"
-                android:textColor="#fff"
-                android:textSize="16dp" />
+                android:text="@string/submit"
+                android:textColor="@color/backGround"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,15 +151,15 @@
                 android:id="@+id/vsName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="35dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="35dp"
                 android:background="#0000"
-                android:hint="Name For SeekBar"
+                android:hint="@string/name_for_seekbar"
                 android:inputType="text"
                 android:padding="16dp"
                 android:textColor="#ADCCE2"
                 android:textColorHint="#ADCCE2"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <View
                 android:id="@+id/view4"
@@ -175,11 +173,11 @@
                 android:id="@+id/seekPinNo"
                 android:layout_width="304dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:background="@color/cardview_shadow_end_color"
                 android:entries="@color/cardview_light_background"
-                app:ms_background_color="@color/backGround"
-                app:ms_text_color="#ffffff" />
+                app:ms_background_color="@color/backgroundTwo"
+                app:ms_text_color="@color/backGround" />
 
             <View
                 android:layout_width="match_parent"
@@ -192,17 +190,16 @@
                 android:id="@+id/submitSeek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/angle"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:textColor="#fff"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <FrameLayout
@@ -235,8 +232,8 @@
             android:gravity="center"
             android:padding="10dp"
             android:paddingEnd="40dp"
-            android:text="Drag Here To Remove"
-            android:textColor="#fff"
+            android:text="@string/drag_here_to_remove"
+            android:textColor="@color/backGround"
             android:textSize="25sp" />
 
         <customfonts.MyTextView
@@ -248,11 +245,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="11dp"
             android:background="@drawable/menuico"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/backGround"
             android:foregroundGravity="left"
             android:padding="16dp"
-            android:textColor="#fff"
-            android:textSize="16dp"
+            android:textColor="@color/backGround"
+            android:textSize="16sp"
             tools:background="@drawable/menuico" />
 
         <com.crystal.crystalpreloaders.widgets.CrystalPreloader
@@ -262,7 +259,7 @@
 
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            app:crs_pl_fg_color="#ffffff"
+            app:crs_pl_fg_color="@color/backGround"
             app:crs_pl_size="extra_large"
             app:crs_pl_style="expandable_balls" />
     </RelativeLayout>
@@ -276,7 +273,7 @@
         android:background="@drawable/bg"
         android:backgroundTint="@color/common_google_signin_btn_text_light_default"
         android:theme="@style/NavigationTheme"
-        app:itemTextColor="#fff"
+        app:itemTextColor="@color/backGround"
 
         app:menu="@menu/control">
 

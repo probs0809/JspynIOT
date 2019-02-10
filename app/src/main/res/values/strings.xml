@@ -10,4 +10,10 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="appwidget_text">EXAMPLE</string>
         <string name="add_widget">Add widget</string>
+    <string name="todo">TODO</string>
+    <string name="name_for_text_button">Name For Text Button</string>
+    <string name="submit">Submit</string>
+    <string name="name_for_switch">Name For Switch</string>
+    <string name="name_for_seekbar">Name For SeekBar</string>
+    <string name="drag_here_to_remove">Drag Here To Remove</string>
 </resources>

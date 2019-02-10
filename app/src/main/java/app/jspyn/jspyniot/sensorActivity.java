@@ -73,7 +73,7 @@ public class sensorActivity extends AppCompatActivity {
         Submit = (Button) findViewById(R.id.Submit);
         locations.add("Select Sensor Location");
         Date.add("Select Date");
-        type.add("Select TYpe");
+        type.add("Select Sensor");
 
 
         myRef = database.getReference("smartHome/" + user.getUid() + "/" + user.getUid() + "-Sensors/");

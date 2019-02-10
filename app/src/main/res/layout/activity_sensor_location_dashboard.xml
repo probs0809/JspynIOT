@@ -40,14 +40,14 @@
                 android:layout_height="wrap_content"
                 app:ms_text_color="@color/colorPrimaryDark"
                 app:ms_background_color="@color/backGround"
-                app:ms_hint_color="@color/colorAccent"
+                app:ms_hint_color="@color/colorPrimary"
                 app:ms_hint="Select Sensor"
                 />
 
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_below="@+id/sensorType"
                 android:background="@color/colorAccent"
                 android:layout_marginLeft="20dp"
@@ -64,13 +64,13 @@
                 android:enabled="false"
                 app:ms_text_color="@color/colorPrimaryDark"
                 app:ms_background_color="@color/backGround"
-                app:ms_hint_color="@color/white"
+                app:ms_hint_color="@color/colorPrimary"
                 app:ms_hint="Select Location"
                 />
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_below="@+id/selectSensor"
                 android:background="@color/colorAccent"
                 android:layout_marginLeft="20dp"
@@ -86,14 +86,14 @@
                 android:layout_height="wrap_content"
                 app:ms_text_color="@color/colorPrimaryDark"
                 app:ms_background_color="@color/backGround"
-                app:ms_hint_color="@color/white"
+                app:ms_hint_color="@color/colorPrimary"
                 android:enabled="false"
                 app:ms_hint="Select Date"
                 />
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="4dp"
                 android:layout_below="@+id/selectDate"
                 android:background="@color/colorAccent"
                 android:layout_marginLeft="20dp"
