@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.crystal.crystalpreloaders.widgets.CrystalPreloader;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -30,11 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.tnlsystems.jspynio.Jspyn;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import app.jspyn.jspyniot.non_activity.ApplicationPost;
 import app.jspyn.jspyniot.non_activity.DropDownClass;
 import cn.pedant.SweetAlert.SweetAlertDialog;
