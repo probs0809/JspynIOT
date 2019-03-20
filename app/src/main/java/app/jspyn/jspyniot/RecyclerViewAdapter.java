@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -83,7 +84,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
     }
 
     @Override
-    public void onBindViewHolder(SimpleViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(final SimpleViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
@@ -141,7 +142,31 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                 configure(api_key_list.get(position));
             }
         });
-        viewHolder.button.setText(deviceName.replace("-", " ").toUpperCase());
+        viewHolder.button.setText(deviceName.replace("-", " "));
+        myRef = database.getReference("apiStatus/" + api_key_list.get(position));
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try {
+                    DeviceStatus d = dataSnapshot.getValue(DeviceStatus.class);
+                    assert d != null;
+                    if (d.status == 1){
+                        viewHolder.button.setTextColor(Color.parseColor("#40CF0E"));
+                    }
+                    else{
+                        viewHolder.button.setTextColor(Color.parseColor("#F44F07"));
+                    }
+                }
+                catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

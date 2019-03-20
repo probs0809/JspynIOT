@@ -84,7 +84,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#000"
                 android:textSize="35sp"
-                android:textStyle="bold" />
+                android:text="hello"
+                />
             <!--What you want to show in SurfaceView-->
         </LinearLayout>
         <!-- Surface View End -->

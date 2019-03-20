@@ -29,7 +29,7 @@ public class MyEditText extends EditText {
 
     private void init() {
         if (!isInEditMode()) {
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "trench100free.ttf");
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "Lato-Regular.ttf");
             setTypeface(tf);
         }
 
