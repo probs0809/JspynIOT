@@ -46,7 +46,7 @@ public class usersPanel extends AppCompatActivity {
     View home;
     TextView title;
     FirebaseDatabase database;
-    DatabaseReference myRef, secRef;
+    DatabaseReference myRef, secRef, triRef;
     FirebaseUser user;
     String deviceName;
     LayoutInflater inflater;
@@ -89,6 +89,8 @@ public class usersPanel extends AppCompatActivity {
 
         API = j.getStringExtra("api");
         myRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application");
+
+
         YoYo.with(Techniques.RollIn)
                 .duration(1000)
                 .repeat(0)
@@ -97,6 +99,8 @@ public class usersPanel extends AppCompatActivity {
                 .duration(700)
                 .repeat(0)
                 .playOn(title);
+
+
 
         new Thread(new Runnable() {
             @Override
@@ -384,8 +388,6 @@ public class usersPanel extends AppCompatActivity {
                                     public void onClick(SweetAlertDialog sDialog) {
                                         myRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName);
                                         myRef.removeValue();
-                                        myRef = database.getReference("GPIO/" + API);
-                                        myRef.removeValue();
                                         sDialog
                                                 .setTitleText("Deleted!")
                                                 .setContentText("Your device has been deleted!")
@@ -473,7 +475,7 @@ public class usersPanel extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName;
+                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace( ' ','-');
 
                             try {
                                 postRequest(postUrl, postBody);

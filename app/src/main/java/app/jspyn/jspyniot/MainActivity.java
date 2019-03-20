@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.github.florent37.materialtextfield.MaterialTextField;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 9001;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    TextView location;
     int exitCounter = 0;
     private FirebaseAuth mAuth;
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         sign_in = (View) findViewById(R.id.signin);
 
+        location = (TextView)findViewById(R.id.location);
         YoYo.with(Techniques.FadeInUp)
                 .duration(700)
                 .repeat(1)
@@ -65,7 +71,12 @@ public class MainActivity extends AppCompatActivity {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
+                if (Objects.equals(location.getText().toString(), "")){
+                    Toast.makeText(getApplicationContext(),"Please Input Location", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    signIn();
+                }
             }
         });
     }
@@ -115,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
                             myRef.setValue(user.getUid());
                             myRef = database.getReference("smartHome/" + user.getUid() + "/photoURL");
                             myRef.setValue(user.getPhotoUrl().toString());
+                            myRef = database.getReference("smartHome/" + user.getUid() + "/location");
+                            myRef.setValue(location.getText().toString());
                             startActivity(new Intent(MainActivity.this, dashBoard.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "Error Signing in...", Toast.LENGTH_LONG).show();

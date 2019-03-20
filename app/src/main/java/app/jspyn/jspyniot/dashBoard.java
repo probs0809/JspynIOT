@@ -252,6 +252,9 @@ public class dashBoard extends AppCompatActivity {
                                 myRef.setValue(device_name);
                                 myRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + device_name + "/api/");
                                 myRef.setValue(api);
+                                myRef = database.getReference("apiStatus/" + api);
+                                myRef.setValue(0);
+
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

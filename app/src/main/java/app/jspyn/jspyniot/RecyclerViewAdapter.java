@@ -222,7 +222,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName;
+                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace(' ','-');
                             try {
                                 postRequest(ESP_URL, postBody);
 
