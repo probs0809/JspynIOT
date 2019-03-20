@@ -116,7 +116,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                             public void onClick(SweetAlertDialog sDialog) {
                                 myRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + device_name_list.get(position));
                                 myRef.removeValue();
-                                myRef = database.getReference("GPIO/" + api_key_list.get(position));
+                                myRef = database.getReference("apiStatus/" + api_key_list.get(position));
                                 myRef.removeValue();
                                 sDialog
                                         .setTitleText("Deleted!")

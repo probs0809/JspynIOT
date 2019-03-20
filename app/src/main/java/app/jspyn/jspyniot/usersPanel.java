@@ -388,6 +388,8 @@ public class usersPanel extends AppCompatActivity {
                                     public void onClick(SweetAlertDialog sDialog) {
                                         myRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName);
                                         myRef.removeValue();
+                                        myRef = database.getReference("apiStatus/" + API);
+                                        myRef.removeValue();
                                         sDialog
                                                 .setTitleText("Deleted!")
                                                 .setContentText("Your device has been deleted!")
