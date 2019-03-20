@@ -150,12 +150,12 @@ public class setControl extends AppCompatActivity {
 
                     case R.id.Submit2:
 
-                        gpioRef = database.getReference("GPIO/" + API);
-                        gpioPost gpioPOst = new gpioPost(0, 0, 0, 0, 0, 0);
-                        gpioRef.setValue(gpioPOst);
-                        //gpioRef = database.getReference("GPIO/"+API);
-                        //gpioPost gpioPst = new gpioPost(0,0,0,0,0,0);
-                        //gpioRef.setValue(gpioPst);
+//                        gpioRef = database.getReference("GPIO/" + API);
+//                        gpioPost gpioPOst = new gpioPost(0, 0, 0, 0, 0, 0);
+//                        gpioRef.setValue(gpioPOst);
+//                        //gpioRef = database.getReference("GPIO/"+API);
+//                        //gpioPost gpioPst = new gpioPost(0,0,0,0,0,0);
+//                        //gpioRef.setValue(gpioPst);
 
                         Intent i = new Intent(setControl.this, dashBoard.class);
                         startActivity(i);
