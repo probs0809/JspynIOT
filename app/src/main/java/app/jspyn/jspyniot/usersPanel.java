@@ -170,10 +170,7 @@ public class usersPanel extends AppCompatActivity {
 
                                                                 }
                                                             });
-
-
                                                             //new Jspyn(API).digitalWrite(Integer.parseInt(appPost.Pin),"HIGH");
-
                                                         }
                                                     }).start();
 

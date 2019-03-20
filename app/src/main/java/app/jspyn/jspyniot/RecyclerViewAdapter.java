@@ -152,9 +152,32 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                     assert d != null;
                     if (d.status == 1){
                         viewHolder.button.setTextColor(Color.parseColor("#40CF0E"));
+                        viewHolder.button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(mContext, usersPanel.class);
+                                i.putExtra("deviceName", device_name_list.get(position));
+                                i.putExtra("api", api_key_list.get(position));
+                                //startActivity(i);
+                                mContext.startActivity(i);
+
+                            }
+                        });
                     }
                     else{
                         viewHolder.button.setTextColor(Color.parseColor("#F44F07"));
+                        viewHolder.button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(mContext, usersPanel.class);
+                                i.putExtra("deviceName", device_name_list.get(position));
+                                i.putExtra("api", api_key_list.get(position));
+                                //startActivity(i);
+                                mContext.startActivity(i);
+                                Toast.makeText(mContext.getApplicationContext(),"Your device is offline",Toast.LENGTH_LONG).show();
+
+                            }
+                        });
                     }
                 }
                 catch (Exception e){
@@ -167,17 +190,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
 
             }
         });
-        viewHolder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, usersPanel.class);
-                i.putExtra("deviceName", device_name_list.get(position));
-                i.putExtra("api", api_key_list.get(position));
-                //startActivity(i);
-                mContext.startActivity(i);
 
-            }
-        });
         viewHolder.addShortcut.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N_MR1)
             @Override
