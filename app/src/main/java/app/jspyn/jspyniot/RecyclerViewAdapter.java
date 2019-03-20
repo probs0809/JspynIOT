@@ -142,7 +142,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                 configure(api_key_list.get(position));
             }
         });
-        viewHolder.button.setText(deviceName.replace("-", " "));
+        viewHolder.button.setText(deviceName.replace("-", " ").toUpperCase());
         myRef = database.getReference("apiStatus/" + api_key_list.get(position));
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
