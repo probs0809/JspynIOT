@@ -66,7 +66,6 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
     FirebaseUser user;
     private DropDownClass drop;
     private Context mContext;
-    private Handler handler;
     private ArrayList<String> smart_home_sensor_list = new ArrayList<>();
     private ArrayList<String> api_key_list = new ArrayList<>();
     private ArrayList<String> device_name_list = new ArrayList<>();
