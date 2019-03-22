@@ -29,7 +29,7 @@ public class MyTextView extends TextView {
 
     private void init() {
 
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "Lato-Regular.ttf");
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "trashco.ttf");
             setTypeface(tf);
 
     }
