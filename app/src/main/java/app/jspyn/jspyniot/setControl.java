@@ -324,6 +324,8 @@ public class setControl extends AppCompatActivity {
             final View itemView = inflater.inflate(R.layout.button, relativeLayout, false);
             itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
             final ButtonFlat text = (ButtonFlat) itemView.findViewById(R.id.Button);
+            itemView.setX(44);
+            itemView.setY(224);
             text.setText(Name);
             itemView.setOnLongClickListener(new LongPressListener());
             itemView.setOnDragListener(new DragListener(identifier, Name, "Button", pin));
@@ -353,6 +355,8 @@ public class setControl extends AppCompatActivity {
             relativeLayout.setOnDragListener(new DragListener());
             final View itemView = inflater.inflate(R.layout.myswitch, relativeLayout, false);
             itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
+            itemView.setX(44);
+            itemView.setY(224);
             final com.gc.materialdesign.views.Switch aSwitch = (com.gc.materialdesign.views.Switch) itemView.findViewById(R.id.Switch);
             TextView textS = (TextView) itemView.findViewById(R.id.SwitchText);
             textS.setText(Name);
@@ -388,6 +392,8 @@ public class setControl extends AppCompatActivity {
             relativeLayout.setOnDragListener(new DragListener());
             final View itemView = inflater.inflate(R.layout.myseekbar, relativeLayout, false);
             itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
+            itemView.setX(44);
+            itemView.setY(224);
             final Slider seekBar = (Slider) itemView.findViewById(R.id.seekBar);
             TextView textSeek = (TextView) itemView.findViewById(R.id.seekBarText);
             textSeek.setText(Name);

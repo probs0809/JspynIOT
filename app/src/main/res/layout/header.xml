@@ -6,8 +6,7 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
-    android:gravity="bottom"
-    android:id="@+id/header">
+    android:gravity="bottom">
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="70dp"

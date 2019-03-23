@@ -5,11 +5,6 @@
 
     <string name="title_activity_graph">Sensor Data</string>
 
-        <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="appwidget_text">EXAMPLE</string>
-        <string name="add_widget">Add widget</string>
     <string name="todo">TODO</string>
     <string name="name_for_text_button">Name For Text Button</string>
     <string name="submit">Submit</string>
