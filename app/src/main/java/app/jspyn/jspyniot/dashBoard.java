@@ -215,7 +215,7 @@ public class dashBoard extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void addDevice() {
+     private void addDevice() {
         View mView = getLayoutInflater().inflate(R.layout.activity_add_device_name, null);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(dashBoard.this);
         mBuilder.setView(mView);
