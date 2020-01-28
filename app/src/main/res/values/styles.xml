@@ -21,7 +21,8 @@
     </style>
 
     <style name="NavigationTheme" parent="AppTheme">
-        <item name="listPreferredItemHeightSmall">100dp</item><!-- menu item height- vary as u need -->
+        <item name="listPreferredItemHeightSmall">100dp
+        </item><!-- menu item height- vary as u need -->
         <item name="android:textColor">@color/accent</item>
         <item name="android:textSize">16sp</item>
     </style>

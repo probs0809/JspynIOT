@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Animation.AppCompat.Dialog"
+    android:background="@color/backGround"
     android:padding="20dp"
-    android:background="@color/backGround">
+    android:theme="@style/Animation.AppCompat.Dialog">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,28 +14,27 @@
         tools:layout_width="wrap_content">
 
 
-
         <com.github.florent37.materialtextfield.MaterialTextField
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            app:mtf_labelColor="@color/colorPrimary"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
             android:id="@+id/mtf3"
-            app:mtf_backgroundColor="@color/colorAccent"
-            >
-        <EditText
-            android:id="@+id/dName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#0000"
-            android:hint="Device Name"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="#000"
-            android:textSize="16sp" />
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            app:mtf_backgroundColor="@color/colorAccent"
+            app:mtf_labelColor="@color/colorPrimary">
+
+            <EditText
+                android:id="@+id/dName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#0000"
+                android:hint="Device Name"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#000"
+                android:textSize="16sp" />
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 
@@ -43,17 +42,17 @@
             android:id="@+id/addDname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/mtf3"
-            android:layout_alignStart="@+id/mtf3"
             android:layout_below="@+id/mtf3"
+            android:layout_alignStart="@+id/mtf3"
+            android:layout_alignEnd="@+id/mtf3"
             android:layout_marginTop="31dp"
             android:background="@drawable/angle2"
+            android:backgroundTint="@color/colorPrimary"
             android:gravity="center"
             android:padding="16dp"
             android:text="Create"
             android:textAlignment="center"
             android:textColor="@color/cardview_light_background"
-            android:backgroundTint="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 

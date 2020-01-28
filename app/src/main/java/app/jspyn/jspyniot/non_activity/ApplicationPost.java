@@ -5,13 +5,12 @@ package app.jspyn.jspyniot.non_activity;
  */
 
 public class ApplicationPost {
-    public int Id,gpio;
-    public String Name,Type,Pin;
-    public float cord_x,cord_y;
+    public int Id, gpio;
+    public String Name, Type, Pin;
+    public float cord_x, cord_y;
 
     public ApplicationPost() {
     }
-
 
 
     public ApplicationPost(int Id, String Name, String Type, String Pin, float cord_x, float cord_y) {

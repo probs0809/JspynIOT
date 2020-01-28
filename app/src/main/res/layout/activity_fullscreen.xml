@@ -12,16 +12,16 @@
         android:id="@+id/imgsp"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/jslogo"/>
+        android:layout_marginTop="30dp"
+        android:src="@drawable/jslogo" />
 
     <customfonts.MyTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:gravity="center"
-        android:layout_gravity="center"
         android:keepScreenOn="true"
         android:text="jspyn"
         android:textColor="@color/colorPrimary"

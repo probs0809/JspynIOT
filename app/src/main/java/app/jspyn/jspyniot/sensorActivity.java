@@ -3,8 +3,10 @@ package app.jspyn.jspyniot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +30,6 @@ import java.util.Objects;
 import okhttp3.OkHttpClient;
 
 public class sensorActivity extends AppCompatActivity {
-    View addDevice;
 
     AlertDialog.Builder mBuilder;
     FirebaseDatabase database;
@@ -51,15 +52,15 @@ public class sensorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor_location_dashboard);
 
-        loader = (CrystalPreloader) findViewById(R.id.loader);
+        loader = findViewById(R.id.loader);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
         handler = new Handler(this.getMainLooper());
-        selectLocaion = (MaterialSpinner) findViewById(R.id.selectSensor);
-        selectDate = (MaterialSpinner) findViewById(R.id.selectDate);
-        sensorType = (MaterialSpinner) findViewById(R.id.sensorType);
+        selectLocaion = findViewById(R.id.selectSensor);
+        selectDate = findViewById(R.id.selectDate);
+        sensorType = findViewById(R.id.sensorType);
 
         YoYo.with(Techniques.FadeInUp)
                 .duration(700)
@@ -70,7 +71,7 @@ public class sensorActivity extends AppCompatActivity {
         client = new OkHttpClient();
         mBuilder = new AlertDialog.Builder(sensorActivity.this);
         inflater = LayoutInflater.from(this);
-        Submit = (Button) findViewById(R.id.Submit);
+        Submit = findViewById(R.id.Submit);
         locations.add("Select Sensor Location");
         Date.add("Select Date");
         type.add("Select Sensor");
@@ -85,7 +86,7 @@ public class sensorActivity extends AppCompatActivity {
                     public void run() {
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 type.clear();
                                 for (DataSnapshot dashdatasnapshot : dataSnapshot.getChildren()) {
                                     type.add(dashdatasnapshot.getKey());
@@ -94,7 +95,7 @@ public class sensorActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
                             }
                         });
@@ -119,7 +120,7 @@ public class sensorActivity extends AppCompatActivity {
                                     myRef.addValueEventListener(new ValueEventListener() {
 
                                         @Override
-                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                             locations.clear();
                                             //locations.add("Select Sensor Location");
                                             for (DataSnapshot dashdataSnapshot : dataSnapshot.getChildren()) {
@@ -128,7 +129,7 @@ public class sensorActivity extends AppCompatActivity {
                                         }
 
                                         @Override
-                                        public void onCancelled(DatabaseError databaseError) {
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                         }
                                     });
@@ -152,7 +153,7 @@ public class sensorActivity extends AppCompatActivity {
                                             public void run() {
                                                 myRef.addValueEventListener(new ValueEventListener() {
                                                     @Override
-                                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                         Date.clear();
                                                         //Date.add("Select Date");
                                                         for (final DataSnapshot dashdataSnapshot : dataSnapshot.getChildren()) {
@@ -161,7 +162,7 @@ public class sensorActivity extends AppCompatActivity {
                                                     }
 
                                                     @Override
-                                                    public void onCancelled(DatabaseError databaseError) {
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                                     }
                                                 });

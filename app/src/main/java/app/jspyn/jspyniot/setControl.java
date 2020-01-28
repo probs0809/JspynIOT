@@ -5,14 +5,12 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -42,7 +40,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.jspyn.jspyniot.non_activity.ApplicationPost;
 import app.jspyn.jspyniot.non_activity.DropDownClass;
-import app.jspyn.jspyniot.non_activity.gpioPost;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -65,13 +62,13 @@ public class setControl extends AppCompatActivity {
     ArrayAdapter aa, ab;
     TextView drawer;
     LayoutInflater inflater;
+    int x, y;
     private FirebaseAuth mAuth;
     private FrameLayout mScrollView;
     private ValueAnimator mAnimator;
     private AtomicBoolean mIsScrolling = new AtomicBoolean(false);
     private String deviceName, API;
     private DrawerLayout drawerLayout;
-    int x,y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,31 +85,31 @@ public class setControl extends AppCompatActivity {
         deviceName = i.getStringExtra("deviceName");
         API = i.getStringExtra("API");
         Toast.makeText(getApplicationContext(), "Setup Device: " + deviceName, Toast.LENGTH_LONG).show();
-        mGrid = (RelativeLayout) findViewById(R.id.layoutTwo);
-        buttonForm = (LinearLayout) findViewById(R.id.buttonForm);
-        switchForm = (LinearLayout) findViewById(R.id.switchForm);
-        seekForm = (LinearLayout) findViewById(R.id.seekForm);
-        mScrollView = (FrameLayout) findViewById(R.id.scroll_view);
+        mGrid =  findViewById(R.id.layoutTwo);
+        buttonForm =  findViewById(R.id.buttonForm);
+        switchForm = findViewById(R.id.switchForm);
+        seekForm = findViewById(R.id.seekForm);
+        mScrollView = findViewById(R.id.scroll_view);
         //mScrollView.setSmoothScrollingEnabled(true);
-        subButton = (View) findViewById(R.id.submitButton);
-        subSeek = (View) findViewById(R.id.submitSeek);
-        subSwitch = (View) findViewById(R.id.submitSwitch);
-        buttonName = (EditText) findViewById(R.id.vName);
-        switchName = (EditText) findViewById(R.id.vsName);
-        seekName = (EditText) findViewById(R.id.vsName2);
-        loader = (CrystalPreloader) findViewById(R.id.loader);
-        buttonSpinner = (MaterialSpinner) findViewById(R.id.buttonPinNo);
-        switchSpinner = (MaterialSpinner) findViewById(R.id.switchPinNo);
-        seekSpinner = (MaterialSpinner) findViewById(R.id.seekPinNo);
+        subButton = findViewById(R.id.submitButton);
+        subSeek =  findViewById(R.id.submitSeek);
+        subSwitch = findViewById(R.id.submitSwitch);
+        buttonName = findViewById(R.id.vName);
+        switchName = findViewById(R.id.vsName);
+        seekName = findViewById(R.id.vsName2);
+        loader = findViewById(R.id.loader);
+        buttonSpinner = findViewById(R.id.buttonPinNo);
+        switchSpinner = findViewById(R.id.switchPinNo);
+        seekSpinner = findViewById(R.id.seekPinNo);
         database = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
         User = mAuth.getCurrentUser();
-        drawer = (TextView) findViewById(R.id.bac2);
+        drawer = findViewById(R.id.bac2);
         aa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, pinList);
         ab = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, pwmList);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        title = (TextView) findViewById(R.id.title2);
+        title = findViewById(R.id.title2);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -319,11 +316,11 @@ public class setControl extends AppCompatActivity {
     class createButton {
         createButton(final String Name, final String pin) {
             identifier = identifier + 1;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout =  findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             final View itemView = inflater.inflate(R.layout.button, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
-            final ButtonFlat text = (ButtonFlat) itemView.findViewById(R.id.Button);
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
+            final ButtonFlat text = itemView.findViewById(R.id.Button);
             itemView.setX(44);
             itemView.setY(224);
             text.setText(Name);
@@ -334,11 +331,11 @@ public class setControl extends AppCompatActivity {
 
         createButton(final String Name, final String pin, final int id, final float cord_x, final float cord_y) {
             identifier = id;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout = findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             View itemView = inflater.inflate(R.layout.button, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
-            ButtonFlat text = (ButtonFlat) itemView.findViewById(R.id.Button);
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
+            ButtonFlat text = itemView.findViewById(R.id.Button);
             text.setText(Name);
             itemView.setX(cord_x);
             itemView.setY(cord_y);
@@ -351,14 +348,14 @@ public class setControl extends AppCompatActivity {
     class createSwitch {
         createSwitch(final String Name, final String pin) {
             identifier = identifier + 1;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout = findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             final View itemView = inflater.inflate(R.layout.myswitch, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
             itemView.setX(44);
             itemView.setY(224);
             final com.gc.materialdesign.views.Switch aSwitch = (com.gc.materialdesign.views.Switch) itemView.findViewById(R.id.Switch);
-            TextView textS = (TextView) itemView.findViewById(R.id.SwitchText);
+            TextView textS = itemView.findViewById(R.id.SwitchText);
             textS.setText(Name);
             //aSwitch.setText(Name);
             itemView.setOnLongClickListener(new LongPressListener());
@@ -368,12 +365,12 @@ public class setControl extends AppCompatActivity {
 
         createSwitch(final String Name, final String pin, final int id, final float cord_x, final float cord_y) {
             identifier = id;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout = findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             View itemView = inflater.inflate(R.layout.myswitch, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
-            com.gc.materialdesign.views.Switch aSwitch = (com.gc.materialdesign.views.Switch) itemView.findViewById(R.id.Switch);
-            TextView textS = (TextView) itemView.findViewById(R.id.SwitchText);
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
+            com.gc.materialdesign.views.Switch aSwitch = itemView.findViewById(R.id.Switch);
+            TextView textS = itemView.findViewById(R.id.SwitchText);
             textS.setText(Name);
             //aSwitch.setText(Name);
             itemView.setX(cord_x);
@@ -388,14 +385,14 @@ public class setControl extends AppCompatActivity {
 
         createSeek(final String Name, final String pin) {
             identifier = identifier + 1;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout = findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             final View itemView = inflater.inflate(R.layout.myseekbar, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
             itemView.setX(44);
             itemView.setY(224);
-            final Slider seekBar = (Slider) itemView.findViewById(R.id.seekBar);
-            TextView textSeek = (TextView) itemView.findViewById(R.id.seekBarText);
+            final Slider seekBar = itemView.findViewById(R.id.seekBar);
+            TextView textSeek = itemView.findViewById(R.id.seekBarText);
             textSeek.setText(Name);
             itemView.setOnLongClickListener(new LongPressListener());
             itemView.setOnDragListener(new DragListener(identifier, Name, "SeekBar", pin));
@@ -405,12 +402,12 @@ public class setControl extends AppCompatActivity {
 
         createSeek(final String Name, final String pin, final int id, final float cord_x, final float cord_y) {
             identifier = id;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.layoutTwo);
+            RelativeLayout relativeLayout = findViewById(R.id.layoutTwo);
             relativeLayout.setOnDragListener(new DragListener());
             View itemView = inflater.inflate(R.layout.myseekbar, relativeLayout, false);
-            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color,getTheme()));
-            Slider seekBar = (Slider) itemView.findViewById(R.id.seekBar);
-            TextView textSeek = (TextView) itemView.findViewById(R.id.seekBarText);
+            itemView.setBackgroundColor(getResources().getColor(R.color.cardview_shadow_start_color, getTheme()));
+            Slider seekBar = itemView.findViewById(R.id.seekBar);
+            TextView textSeek = itemView.findViewById(R.id.seekBarText);
             textSeek.setText(Name);
             itemView.setX(cord_x);
             itemView.setY(cord_y);
@@ -515,8 +512,6 @@ public class setControl extends AppCompatActivity {
                                         }
                                     })
                                     .show();
-
-
                             title.setText("Drag Here To Remove");
                             title.setTextColor(getColor(R.color.white));
 

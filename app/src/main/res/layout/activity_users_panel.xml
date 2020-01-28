@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundTwo"
-    android:id="@+id/dl2">
+    android:background="@color/backgroundTwo">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
 
         <customfonts.MyTextView
@@ -26,7 +25,7 @@
             android:text="Jspyn"
             android:textColor="#fff"
             android:textSize="40sp"
-            android:textStyle="bold" >
+            android:textStyle="bold">
 
         </customfonts.MyTextView>
 
@@ -34,24 +33,22 @@
             android:id="@+id/bac"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/menuico"
             android:backgroundTint="#fff"
             android:foregroundGravity="left"
             android:padding="16dp"
             android:textColor="#fff"
             android:textSize="16dp"
-            tools:background="@drawable/menuico"
-            />
+            tools:background="@drawable/menuico" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
 
             <RelativeLayout
@@ -63,6 +60,7 @@
             </RelativeLayout>
 
         </FrameLayout>
+
         <com.crystal.crystalpreloaders.widgets.CrystalPreloader
             android:id="@+id/loader"
             android:layout_width="match_parent"
@@ -70,23 +68,23 @@
 
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            app:crs_pl_size="extra_large"
             app:crs_pl_fg_color="@color/colorAccent"
+            app:crs_pl_size="extra_large"
             app:crs_pl_style="expandable_balls" />
 
     </RelativeLayout>
 
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nv2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="@drawable/bg"
         android:backgroundTint="@color/common_google_signin_btn_text_light_default"
-        app:itemTextColor="#fff"
         app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
         app:menu="@menu/edit">
 
-    </android.support.design.widget.NavigationView>
+    </com.google.android.material.navigation.NavigationView>
 
-</android.support.v4.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

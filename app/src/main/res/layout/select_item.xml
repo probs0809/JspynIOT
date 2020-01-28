@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#000">
+    android:background="#000"
+    android:padding="10dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:textSize="30sp"
         android:text="Select Widget"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

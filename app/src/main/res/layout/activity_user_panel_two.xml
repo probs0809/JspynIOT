@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundTwo"
-    android:id="@+id/dl2">
+    android:background="@color/backgroundTwo">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
 
         <customfonts.MyTextView
@@ -27,14 +25,13 @@
             android:text="Jspyn"
             android:textColor="#fff"
             android:textSize="40sp"
-            android:textStyle="bold" >
+            android:textStyle="bold">
 
         </customfonts.MyTextView>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
 
             <RelativeLayout
@@ -46,6 +43,7 @@
             </RelativeLayout>
 
         </FrameLayout>
+
         <com.crystal.crystalpreloaders.widgets.CrystalPreloader
             android:id="@+id/loader"
             android:layout_width="match_parent"
@@ -53,12 +51,11 @@
 
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            app:crs_pl_size="extra_large"
             app:crs_pl_fg_color="@color/colorAccent"
+            app:crs_pl_size="extra_large"
             app:crs_pl_style="expandable_balls" />
 
     </RelativeLayout>
 
 
-
-</android.support.v4.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

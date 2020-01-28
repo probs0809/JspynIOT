@@ -29,8 +29,8 @@ public class MyTextView extends TextView {
 
     private void init() {
 
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "trashco.ttf");
-            setTypeface(tf);
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "trashco.ttf");
+        setTypeface(tf);
 
     }
 

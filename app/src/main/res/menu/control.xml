@@ -3,27 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item
-        app:actionLayout="@layout/select_item"
-        />
+    <item app:actionLayout="@layout/select_item" />
 
     <item
         android:id="@+id/addButton2"
         android:title=""
-        app:actionLayout="@layout/button"
-        />
+        app:actionLayout="@layout/button" />
     <item
         android:id="@+id/addSwitch2"
         android:title=""
         app:actionLayout="@layout/myswitch"
-            
+
         />
     <item
         android:id="@+id/addSeekbar2"
-        app:showAsAction="always"
         android:title=""
         app:actionLayout="@layout/myseekbar"
-        />
+        app:showAsAction="always" />
     <item
 
         android:id="@+id/Submit2"

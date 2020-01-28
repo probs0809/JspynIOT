@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:grid="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="fill"
     android:layout_margin="2dp"
     android:clickable="true"
@@ -13,79 +10,78 @@
     <!--android:background="@color/cardview_shadow_start_color"-->
 
 
-
     <!--<com.gc.materialdesign.views.Switch-->
-        <!--android:id="@+id/Switch"-->
-        <!--style="@android:style/Widget.Material.CompoundButton.Switch"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_margin="20dp"-->
-        <!--android:background="@drawable/angle2"-->
-        <!--android:backgroundTint="@color/colorPrimary"-->
-        <!--android:enabled="false"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="10dp"-->
-        <!--android:switchMinWidth="20dp"-->
-        <!--android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-        <!--android:textColor="@color/cardview_light_background"-->
-        <!--android:textSize="18sp"-->
-        <!--android:thumbTint="@color/common_google_signin_btn_text_dark_focused" />-->
+    <!--android:id="@+id/Switch"-->
+    <!--style="@android:style/Widget.Material.CompoundButton.Switch"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_margin="20dp"-->
+    <!--android:background="@drawable/angle2"-->
+    <!--android:backgroundTint="@color/colorPrimary"-->
+    <!--android:enabled="false"-->
+    <!--android:gravity="center"-->
+    <!--android:padding="10dp"-->
+    <!--android:switchMinWidth="20dp"-->
+    <!--android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+    <!--android:textColor="@color/cardview_light_background"-->
+    <!--android:textSize="18sp"-->
+    <!--android:thumbTint="@color/common_google_signin_btn_text_dark_focused" />-->
 
 
     <View
         android:layout_width="150dp"
         android:layout_height="1dp"
-        android:background="@color/accent"/>
+        android:background="@color/accent" />
+
     <View
         android:layout_width="150dp"
         android:layout_height="1dp"
-        android:background="@color/accent"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:background="@color/accent" />
+
     <View
         android:layout_width="1dp"
         android:layout_height="60dp"
-        android:background="@color/accent"/>
+        android:background="@color/accent" />
 
     <View
         android:layout_width="1dp"
         android:layout_height="60dp"
         android:layout_gravity="end"
-        android:background="@color/accent"/>
+        android:background="@color/accent" />
+
     <com.gc.materialdesign.views.Switch
 
         android:id="@+id/Switch"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
-        android:background="@color/colorAccent"
-        />
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAccent" />
 
     <TextView
         android:id="@+id/SwitchText"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
         android:labelFor="@id/Switch"
         android:text="Switch"
-        android:textSize="16sp"
-        android:layout_gravity="end"
-       android:layout_marginEnd="10dp"
         android:textColor="@color/accent"
-        android:textStyle="bold"
-         />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/SwitchStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:layout_marginStart="10dp"
         android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:text=""
         android:textColor="@color/accent"
-        android:textStyle="bold"
-        />
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 
 </FrameLayout>

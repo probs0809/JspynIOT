@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.icu.math.BigDecimal;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TableLayout;
@@ -61,7 +62,7 @@ public class graphActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
-        loader = (CrystalPreloader) findViewById(R.id.loader);
+        loader = findViewById(R.id.loader);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
@@ -73,7 +74,7 @@ public class graphActivity extends AppCompatActivity {
         client = new OkHttpClient();
         mBuilder = new AlertDialog.Builder(graphActivity.this);
         inflater = LayoutInflater.from(this);
-        graph = (GraphView) findViewById(R.id.graph);
+        graph = findViewById(R.id.graph);
 
        /* graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
@@ -112,7 +113,7 @@ public class graphActivity extends AppCompatActivity {
 
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 series.resetData(new DataPoint[]{
                                         new DataPoint(0, 0)
                                 });
@@ -140,7 +141,7 @@ public class graphActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
                             }
                         });

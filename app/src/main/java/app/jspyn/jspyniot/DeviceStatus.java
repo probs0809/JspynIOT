@@ -7,12 +7,12 @@ package app.jspyn.jspyniot;
 public class DeviceStatus {
     public int status;
 
-    DeviceStatus(){
+    DeviceStatus() {
 
     }
 
-    DeviceStatus(int status){
-        this.status =  status;
+    DeviceStatus(int status) {
+        this.status = status;
     }
 
 }

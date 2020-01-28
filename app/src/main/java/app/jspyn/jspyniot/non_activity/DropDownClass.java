@@ -8,6 +8,7 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 
 public class DropDownClass implements MaterialSpinner.OnItemSelectedListener {
     public int position;
+
     @Override
     public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
         this.position = position;

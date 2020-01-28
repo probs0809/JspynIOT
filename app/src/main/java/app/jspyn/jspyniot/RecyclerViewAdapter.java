@@ -1,7 +1,6 @@
 package app.jspyn.jspyniot;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,22 +10,17 @@ import android.content.pm.ShortcutManager;
 import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.provider.ContactsContract;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.RecyclerView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.daimajia.swipe.SwipeLayout;
@@ -40,14 +34,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.logging.Handler;
-
 import app.jspyn.jspyniot.non_activity.DropDownClass;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import okhttp3.Call;
@@ -61,14 +49,14 @@ import okhttp3.Response;
 
 class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.SimpleViewHolder> {
     private final String ESP_URL = "http://192.168.4.1/login";
+    FirebaseUser user;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
-    FirebaseUser user;
     private DropDownClass drop;
     private Context mContext;
     private ArrayList<String> smart_home_sensor_list = new ArrayList<>();
-    private ArrayList<String> api_key_list = new ArrayList<>();
-    private ArrayList<String> device_name_list = new ArrayList<>();
+    private ArrayList<String> api_key_list;
+    private ArrayList<String> device_name_list;
 
     RecyclerViewAdapter(Context context, ArrayList<String> API, ArrayList<String> DeviceName) {
         this.mContext = context;
@@ -76,6 +64,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
         this.api_key_list = API;
     }
 
+    @NonNull
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dashview, parent, false);
@@ -87,8 +76,8 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
-        String deviceName = device_name_list.get(position);
-
+        String deviceName;
+        deviceName = device_name_list.get(position);
 
 
         viewHolder.edit.setOnClickListener(new View.OnClickListener() {
@@ -149,7 +138,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                 try {
                     DeviceStatus d = dataSnapshot.getValue(DeviceStatus.class);
                     assert d != null;
-                    if (d.status == 1){
+                    if (d.status == 1) {
                         viewHolder.button.setTextColor(Color.parseColor("#40CF0E"));
                         viewHolder.button.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -162,8 +151,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
 
                             }
                         });
-                    }
-                    else{
+                    } else {
                         viewHolder.button.setTextColor(Color.parseColor("#F44F07"));
                         viewHolder.button.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -173,13 +161,12 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                                 i.putExtra("api", api_key_list.get(position));
                                 //startActivity(i);
                                 mContext.startActivity(i);
-                                Toast.makeText(mContext.getApplicationContext(),"Your device is offline",Toast.LENGTH_LONG).show();
+                                Toast.makeText(mContext.getApplicationContext(), "Your device is offline", Toast.LENGTH_LONG).show();
 
                             }
                         });
                     }
-                }
-                catch (Exception e){
+                } catch (Exception ignored) {
 
                 }
             }
@@ -195,7 +182,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
             @Override
             public void onClick(View v) {
 
-                    addShortcut(device_name_list.get(position), api_key_list.get(position));
+                addShortcut(device_name_list.get(position), api_key_list.get(position));
 
             }
         });
@@ -251,15 +238,13 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
                 final String SENSOR = smart_home_sensor_list.get(drop.position);
                 if (ssidS.equals("")) {
                     Toast.makeText(mContext, "Please input SSID.", Toast.LENGTH_LONG).show();
-                }
-                else if(isInternetOn()){
+                } else if (isInternetOn()) {
                     showDialog();
-                }
-                else {
+                } else {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace(' ','-');
+                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace(' ', '-');
                             try {
                                 postRequest(ESP_URL, postBody);
 
@@ -301,72 +286,16 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
 
     }
 
-    static class SimpleViewHolder extends RecyclerView.ViewHolder {
-        ButtonIcon edit;
-        ButtonIcon delete;
-        ButtonIcon config;
-        TextView button;
-        ButtonIcon addShortcut;
-        SwipeLayout swipeLayout;
-
-        SimpleViewHolder(View view) {
-            super(view);
-            edit = (ButtonIcon) view.findViewById(R.id.edit);
-            delete = (ButtonIcon) view.findViewById(R.id.deleteDevice);
-            config = (ButtonIcon) view.findViewById(R.id.config);
-            button = (TextView) view.findViewById(R.id.d10);
-            addShortcut = (ButtonIcon)view.findViewById(R.id.addShortcut);
-            SwipeLayout swipeLayout = (SwipeLayout) view.findViewById(R.id.sl);
-            swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
-            swipeLayout.addDrag(SwipeLayout.DragEdge.Left, (LinearLayout) view.findViewById(R.id.bottom_wrapper));
-            swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
-                @Override
-                public void onClose(SwipeLayout layout) {
-                    //when the SurfaceView totally cover the BottomView.
-                }
-
-                @Override
-                public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
-                    //you are swiping.
-                }
-
-                @Override
-                public void onStartOpen(SwipeLayout layout) {
-
-                }
-
-                @Override
-                public void onOpen(SwipeLayout layout) {
-                    //when the BottomView totally show.
-                }
-
-                @Override
-                public void onStartClose(SwipeLayout layout) {
-
-                }
-
-                @Override
-                public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
-                    //when user's hand released.
-                }
-            });
-            YoYo.with(Techniques.StandUp)
-                    .duration(700)
-                    .repeat(0)
-                    .playOn(view.findViewById(R.id.sl));
-
-        }
-    }
-
     private boolean isInternetOn() {
 
         // get Connectivity Manager object to check connection
-        ConnectivityManager connec = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connec = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         assert connec != null;
         NetworkInfo activeNetwork = connec.getActiveNetworkInfo();
         // Check for network connections
-        if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE ) {
+        assert activeNetwork != null;
+        if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
 
             // if connected with internet
 
@@ -411,7 +340,7 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
             ShortcutInfo pinShortcutInfo = new ShortcutInfo.Builder(mContext, api)
-                    .setIcon(Icon.createWithResource(mContext,R.mipmap.ic_launcher))
+                    .setIcon(Icon.createWithResource(mContext, R.mipmap.ic_launcher))
                     .setShortLabel(name)
                     .setIntent(i)
                     .build();
@@ -424,6 +353,63 @@ class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.Simpl
 
             mShortcutManager.requestPinShortcut(pinShortcutInfo,
                     successCallback.getIntentSender());
+        }
+    }
+
+    static class SimpleViewHolder extends RecyclerView.ViewHolder {
+        ButtonIcon edit;
+        ButtonIcon delete;
+        ButtonIcon config;
+        TextView button;
+        ButtonIcon addShortcut;
+        SwipeLayout swipeLayout;
+
+        SimpleViewHolder(View view) {
+            super(view);
+            edit = view.findViewById(R.id.edit);
+            delete = view.findViewById(R.id.deleteDevice);
+            config = view.findViewById(R.id.config);
+            button = view.findViewById(R.id.d10);
+            addShortcut = view.findViewById(R.id.addShortcut);
+            SwipeLayout swipeLayout = view.findViewById(R.id.sl);
+            swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
+            swipeLayout.addDrag(SwipeLayout.DragEdge.Left, view.findViewById(R.id.bottom_wrapper));
+            swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
+                @Override
+                public void onClose(SwipeLayout layout) {
+                    //when the SurfaceView totally cover the BottomView.
+                }
+
+                @Override
+                public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
+                    //you are swiping.
+                }
+
+                @Override
+                public void onStartOpen(SwipeLayout layout) {
+
+                }
+
+                @Override
+                public void onOpen(SwipeLayout layout) {
+                    //when the BottomView totally show.
+                }
+
+                @Override
+                public void onStartClose(SwipeLayout layout) {
+
+                }
+
+                @Override
+                public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
+                    //when user's hand released.
+                }
+            });
+            YoYo.with(Techniques.StandUp)
+                    .duration(700)
+                    .repeat(0)
+                    .playOn(view.findViewById(R.id.sl));
+
         }
     }
 

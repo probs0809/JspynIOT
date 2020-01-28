@@ -1,5 +1,8 @@
 package com.tnlsystems.jspynio;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 import java.io.IOException;
 import java.util.Objects;
 
@@ -27,7 +30,8 @@ public class Jspyn {
 
     }
 
-    public void digitalWrite(int pin,String state) {
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void digitalWrite(int pin, String state) {
 
 
         if (Objects.equals(state, "HIGH") || Objects.equals(state, "1")){

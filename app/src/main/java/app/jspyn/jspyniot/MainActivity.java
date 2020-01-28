@@ -2,15 +2,14 @@ package app.jspyn.jspyniot;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.github.florent37.materialtextfield.MaterialTextField;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         sign_in = (View) findViewById(R.id.signin);
 
-        location = (TextView)findViewById(R.id.location);
+        location = (TextView) findViewById(R.id.location);
         YoYo.with(Techniques.FadeInUp)
                 .duration(700)
                 .repeat(1)
@@ -71,10 +70,9 @@ public class MainActivity extends AppCompatActivity {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Objects.equals(location.getText().toString(), "")){
-                    Toast.makeText(getApplicationContext(),"Please Input Location", Toast.LENGTH_LONG).show();
-                }
-                else{
+                if (Objects.equals(location.getText().toString(), "")) {
+                    Toast.makeText(getApplicationContext(), "Please Input Location", Toast.LENGTH_LONG).show();
+                } else {
                     signIn();
                 }
             }
@@ -92,13 +90,16 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
                 // Google Sign In failed, update UI appropriately
                 //Log.w(TAG, "Google sign in failed", e);
                 // [START_EXCLUDE]
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             myRef = database.getReference("smartHome/" + user.getUid() + "/email");
+
                             myRef.setValue(user.getEmail());
                             myRef = database.getReference("smartHome/" + user.getUid() + "/name");
                             myRef.setValue(user.getDisplayName());
@@ -139,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
     public void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     @Override

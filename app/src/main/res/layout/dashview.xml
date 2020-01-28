@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <com.daimajia.swipe.SwipeLayout
+
+    <com.daimajia.swipe.SwipeLayout xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
 
         >
 
         <!-- Bottom View Start-->
         <LinearLayout
             android:id="@+id/bottom_wrapper"
-            android:orientation="horizontal"
             android:layout_width="210dp"
-            android:weightSum="1"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <com.gc.materialdesign.views.ButtonIcon
                 android:id="@+id/edit"
@@ -40,8 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@color/red"
-                materialdesign:iconDrawable="@android:drawable/ic_menu_delete"
-                />
+                materialdesign:iconDrawable="@android:drawable/ic_menu_delete" />
 
             <com.gc.materialdesign.views.ButtonIcon
                 android:id="@+id/addShortcut"
@@ -57,17 +55,17 @@
 
         <!-- Surface View Start -->
         <LinearLayout
-            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:padding="10dp">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="0dp"
                 android:background="@color/backGround"
-                materialdesign:srcCompat="@mipmap/ic_launcher_foreground"
-                android:contentDescription="@string/todo" />
+                android:contentDescription="@string/todo"
+                materialdesign:srcCompat="@mipmap/ic_launcher_foreground" />
 
             <customfonts.MyTextView
                 android:id="@+id/d10"
@@ -80,36 +78,34 @@
                 android:backgroundTintMode="src_in"
                 android:gravity="center"
                 android:padding="16dp"
+                android:text="hello"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#000"
-                android:textSize="35sp"
-                android:text="hello"
-                />
+                android:textSize="35sp" />
             <!--What you want to show in SurfaceView-->
         </LinearLayout>
         <!-- Surface View End -->
 
 
     </com.daimajia.swipe.SwipeLayout>
-</LinearLayout>
-    <!--<ImageButton-->
-        <!--android:id="@+id/imageButton0"-->
-        <!--android:layout_width="80dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_margin="10dp"-->
-        <!--app:srcCompat="@drawable/ic_menu_camera" />-->
+</LinearLayout><!--<ImageButton-->
+    <!--android:id="@+id/imageButton0"-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:layout_margin="10dp"-->
+    <!--app:srcCompat="@drawable/ic_menu_camera" />-->
 
     <!--<customfonts.MyTextView-->
-        <!--android:id="@+id/d10"-->
-        <!--android:layout_width="260dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_marginLeft="95dp"-->
-        <!--android:background="@android:drawable/screen_background_dark_transparent"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="16dp"-->
-        <!--android:text="My Device"-->
-        <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
-        <!--android:textColor="#fff"-->
-        <!--android:textSize="24sp" />-->
+    <!--android:id="@+id/d10"-->
+    <!--android:layout_width="260dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_marginLeft="95dp"-->
+    <!--android:background="@android:drawable/screen_background_dark_transparent"-->
+    <!--android:gravity="center"-->
+    <!--android:padding="16dp"-->
+    <!--android:text="My Device"-->
+    <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
+    <!--android:textColor="#fff"-->
+    <!--android:textSize="24sp" />-->

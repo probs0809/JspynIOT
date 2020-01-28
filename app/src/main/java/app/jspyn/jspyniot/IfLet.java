@@ -1,9 +1,9 @@
 package app.jspyn.jspyniot;
 
 import android.graphics.Color;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.gigamole.navigationtabstrip.NavigationTabStrip;
 
@@ -19,7 +19,7 @@ public class IfLet extends AppCompatActivity {
         navigationTabStrip.setTitles("My ifLet", "Create new ifLet");
         navigationTabStrip.setTabIndex(0, true);
         navigationTabStrip.setTitleSize(50);
-        navigationTabStrip.setStripColor(getResources().getColor(R.color.accent,getTheme()));
+        navigationTabStrip.setStripColor(getResources().getColor(R.color.accent, getTheme()));
         navigationTabStrip.setStripWeight(6);
         navigationTabStrip.setStripFactor(25);
         navigationTabStrip.setStripType(NavigationTabStrip.StripType.LINE);

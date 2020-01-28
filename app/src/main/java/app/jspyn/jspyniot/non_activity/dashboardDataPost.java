@@ -8,7 +8,7 @@ public class dashboardDataPost {
 
     public String DeviceName, api;
 
-    public dashboardDataPost(){
+    public dashboardDataPost() {
 
     }
 
@@ -16,7 +16,6 @@ public class dashboardDataPost {
         this.DeviceName = DeviceName;
         this.api = api;
     }
-
 
 
 }

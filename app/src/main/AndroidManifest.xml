@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <!--    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />-->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
 
@@ -40,7 +40,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".sensorActivity" />
 
-        <service android:name=".MyFirebaseInstanceIDService">
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:permission="TODO">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

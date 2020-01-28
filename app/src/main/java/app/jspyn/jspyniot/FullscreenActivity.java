@@ -1,15 +1,9 @@
 package app.jspyn.jspyniot;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -19,7 +13,8 @@ import com.daimajia.androidanimations.library.YoYo;
  * status bar and navigation/system bar) with user interaction.
  */
 public class FullscreenActivity extends AppCompatActivity {
-    static int SPLASH_TIME_OUT= 3000;
+    static int SPLASH_TIME_OUT = 3000;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +23,6 @@ public class FullscreenActivity extends AppCompatActivity {
                 .duration(700)
                 .repeat(0)
                 .playOn(findViewById(R.id.imgsp));
-
-
 
 
         new Handler().postDelayed(new Runnable() {

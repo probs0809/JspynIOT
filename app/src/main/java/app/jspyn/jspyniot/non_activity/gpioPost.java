@@ -5,7 +5,7 @@ package app.jspyn.jspyniot.non_activity;
  */
 
 public class gpioPost {
-    public int Relay_1,Relay_2,Relay_3,Relay_4,Var_1,Var_2;
+    public int Relay_1, Relay_2, Relay_3, Relay_4, Var_1, Var_2;
 
     public gpioPost() {
     }

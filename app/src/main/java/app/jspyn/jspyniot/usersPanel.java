@@ -4,17 +4,18 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.crystal.crystalpreloaders.widgets.CrystalPreloader;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -29,9 +30,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.tnlsystems.jspynio.Jspyn;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import app.jspyn.jspyniot.non_activity.ApplicationPost;
 import app.jspyn.jspyniot.non_activity.DropDownClass;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -41,12 +44,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class usersPanel extends AppCompatActivity {
-    private final String postUrl = "http://192.168.4.1/login";
     int Value;
     View home;
     TextView title;
     FirebaseDatabase database;
-    DatabaseReference myRef, secRef, triRef;
+    DatabaseReference myRef;
+    DatabaseReference secRef;
     FirebaseUser user;
     String deviceName;
     LayoutInflater inflater;
@@ -78,7 +81,8 @@ public class usersPanel extends AppCompatActivity {
         layout = findViewById(R.id.layout3);
         home = findViewById(R.id.bac);
         title = findViewById(R.id.title);
-        title.setText(deviceNameTwo.replace("-"," ").toUpperCase());
+        assert deviceNameTwo != null;
+        title.setText(deviceNameTwo.replace("-", " ").toUpperCase());
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +103,6 @@ public class usersPanel extends AppCompatActivity {
                 .duration(700)
                 .repeat(0)
                 .playOn(title);
-
 
 
         new Thread(new Runnable() {
@@ -125,16 +128,14 @@ public class usersPanel extends AppCompatActivity {
                                             //final Button button_ = new Button(usersPanel.this);
                                             button_.setText(appPost.Name);
                                             button_.setEnabled(true);
-                                            if (appPost.gpio == 1){
-                                                button_.setBackgroundColor(getResources().getColor(R.color.accent,getTheme()));
+                                            if (appPost.gpio == 1) {
+                                                button_.setBackgroundColor(getResources().getColor(R.color.accent, getTheme()));
                                                 ButtonState.setText("ON");
-                                                ButtonState.setTextColor(getResources().getColor(R.color.accent,getTheme()));
-                                            }
-                                            else if (appPost.gpio == 0)
-                                            {
-                                                button_.setBackgroundColor(getResources().getColor(R.color.colorAccent,getTheme()));
+                                                ButtonState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
+                                            } else if (appPost.gpio == 0) {
+                                                button_.setBackgroundColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                                 ButtonState.setText("OFF");
-                                                ButtonState.setTextColor(getResources().getColor(R.color.colorAccent,getTheme()));
+                                                ButtonState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                             }
                                             button_.setOnClickListener(new View.OnClickListener() {
                                                 @Override
@@ -151,13 +152,13 @@ public class usersPanel extends AppCompatActivity {
                                                                         if (dataSnapshot.getValue().toString().equals("0")) {
 
                                                                             secRef.setValue(1);
-                                                                            new Jspyn(API).write(appPost.Pin+"1");
+                                                                            new Jspyn(API).write(appPost.Pin + "1");
                                                                             ButtonState.setText("On");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
                                                                             button_.setBackgroundColor(getResources().getColor(R.color.accent, getTheme()));
                                                                         } else if (dataSnapshot.getValue().toString().equals("1")) {
                                                                             secRef.setValue(0);
-                                                                            new Jspyn(API).write(appPost.Pin+"0");
+                                                                            new Jspyn(API).write(appPost.Pin + "0");
                                                                             ButtonState.setText("OFF");
                                                                             ButtonState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                                                             button_.setBackgroundColor(getResources().getColor(R.color.colorAccent, getTheme()));
@@ -202,10 +203,10 @@ public class usersPanel extends AppCompatActivity {
                                             if (!switch_.isAccessibilityFocused()) {
                                                 if (appPost.gpio == 0) {
                                                     SwitchState.setText("OFF");
-                                                    SwitchState.setTextColor(getResources().getColor(R.color.colorAccent,getTheme()));
+                                                    SwitchState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                                     switch_.setChecked(false);
                                                 } else {
-                                                    SwitchState.setTextColor(getResources().getColor(R.color.accent,getTheme()));
+                                                    SwitchState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
                                                     SwitchState.setText("ON");
                                                     switch_.setChecked(true);
                                                 }
@@ -221,11 +222,11 @@ public class usersPanel extends AppCompatActivity {
                                                             public void run() {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(1);
-                                                                new Jspyn(API).write(appPost.Pin+"1");
+                                                                new Jspyn(API).write(appPost.Pin + "1");
                                                             }
                                                         }).start();
 
-                                                        SwitchState.setTextColor(getResources().getColor(R.color.accent,getTheme()));
+                                                        SwitchState.setTextColor(getResources().getColor(R.color.accent, getTheme()));
                                                         SwitchState.setText("ON");
 
                                                     } else {
@@ -236,12 +237,12 @@ public class usersPanel extends AppCompatActivity {
                                                             public void run() {
                                                                 secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
                                                                 secRef.setValue(0);
-                                                                new Jspyn(API).write(appPost.Pin+"0");
+                                                                new Jspyn(API).write(appPost.Pin + "0");
 
                                                             }
                                                         }).start();
 
-                                                        SwitchState.setTextColor(getResources().getColor(R.color.colorAccent,getTheme()));
+                                                        SwitchState.setTextColor(getResources().getColor(R.color.colorAccent, getTheme()));
                                                         SwitchState.setText("OFF");
 
                                                     }
@@ -293,21 +294,18 @@ public class usersPanel extends AppCompatActivity {
                                                         public void run() {
                                                             stateSeek.setText(Integer.toString(Value));
                                                             secRef = database.getReference("smartHome/" + user.getUid() + "/dashboard/" + deviceName + "/Application/" + appPost.Id + "/gpio");
-                                                            secRef.setValue( Value);
-                                                            if (Value/10 < 1){
-                                                                new Jspyn(API).write(appPost.Pin+"00"+Integer.toString(Value));
-                                                            }
-                                                            else if (Value/100 < 1){
-                                                                new Jspyn(API).write(appPost.Pin+"0"+Integer.toString(Value));
-                                                            }
-                                                            else{
-                                                                new Jspyn(API).write(appPost.Pin+Integer.toString(Value));
+                                                            secRef.setValue(Value);
+                                                            if (Value / 10 < 1) {
+                                                                new Jspyn(API).write(appPost.Pin + "00" + Value);
+                                                            } else if (Value / 100 < 1) {
+                                                                new Jspyn(API).write(appPost.Pin + "0" + Value);
+                                                            } else {
+                                                                new Jspyn(API).write(appPost.Pin + Value);
                                                             }
                                                         }
-                                                    },2000);
+                                                    }, 2000);
                                                 }
                                             });
-
 
 
 //                                            seek_.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -419,7 +417,7 @@ public class usersPanel extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
 
@@ -430,7 +428,7 @@ public class usersPanel extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dashdataSnapshot : dataSnapshot.getChildren()) {
-                    if (dashdataSnapshot.getValue()!=null) {
+                    if (dashdataSnapshot.getValue() != null) {
                         sensorList.add(dashdataSnapshot.getValue().toString());
                     }
                 }
@@ -474,14 +472,10 @@ public class usersPanel extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace( ' ','-');
+                            String postBody = "SSID=" + ssidS + "&PASSWORD=" + passwordS + "&API_KEY=" + API + "&SENSOR_TYPE=" + SENSOR + "&UID=" + user.getUid() + "&SENSOR_NAME=" + customSName.replace(' ', '-');
 
-                            try {
-                                postRequest(postUrl, postBody);
+                            postRequest(postBody);
 
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                         }
                     }).start();
 
@@ -495,11 +489,11 @@ public class usersPanel extends AppCompatActivity {
 
     }
 
-    private void postRequest(String postUrl, String postBody) throws IOException {
+    private void postRequest(String postBody) {
         OkHttpClient client = new OkHttpClient();
         //RequestBody body = RequestBody.create(JSON, postBody);
         Request request = new Request.Builder()
-                .url(postUrl + "?" + postBody)
+                .url("http://192.168.4.1/login" + "?" + postBody)
                 .build();
         Call call = client.newCall(request);
 

@@ -2,16 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/Animation.AppCompat.Dialog"
-    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backGround">
+    android:background="@color/backGround"
+    android:padding="20dp"
+    android:theme="@style/Animation.AppCompat.Dialog">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -34,102 +33,98 @@
                 android:textStyle="bold" />
 
             <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/mtf1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView2"
-                app:mtf_labelColor="@color/colorPrimary"
-                android:layout_marginRight="40dp"
                 android:layout_marginLeft="40dp"
-                android:id="@+id/mtf1"
+                android:layout_marginRight="40dp"
                 app:mtf_backgroundColor="@color/colorAccent"
-                >
-            <EditText
-                android:id="@+id/ssid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/view"
+                app:mtf_labelColor="@color/colorPrimary">
+
+                <EditText
+                    android:id="@+id/ssid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/view"
 
 
-
-                android:background="#0000"
-                android:hint="SSID"
-                android:inputType="text"
-                android:padding="16dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="#000000 "
-                android:textSize="16dp" />
-
-
+                    android:background="#0000"
+                    android:hint="SSID"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#000000 "
+                    android:textSize="16dp" />
 
 
             </com.github.florent37.materialtextfield.MaterialTextField>
 
 
             <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/mtf2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mtf1"
-                app:mtf_labelColor="@color/colorPrimary"
-                android:layout_marginRight="40dp"
                 android:layout_marginLeft="40dp"
-                android:id="@+id/mtf2"
+                android:layout_marginRight="40dp"
                 app:mtf_backgroundColor="@color/colorAccent"
-                >
-            <EditText
-                android:id="@+id/wPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                app:mtf_labelColor="@color/colorPrimary">
 
-                android:background="#0000"
-                android:hint="WiFi PASSWORD"
-                android:inputType="textPassword"
-                android:padding="16dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="#000000 "
-                android:textSize="16dp" />
+                <EditText
+                    android:id="@+id/wPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="#0000"
+                    android:hint="WiFi PASSWORD"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#000000 "
+                    android:textSize="16dp" />
 
             </com.github.florent37.materialtextfield.MaterialTextField>
 
 
             <com.github.florent37.materialtextfield.MaterialTextField
+                android:id="@+id/mtf3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mtf2"
-                app:mtf_labelColor="@color/colorPrimary"
-                android:layout_marginRight="40dp"
                 android:layout_marginLeft="40dp"
-                android:id="@+id/mtf3"
+                android:layout_marginRight="40dp"
                 app:mtf_backgroundColor="@color/colorAccent"
-                >
-            <EditText
-                android:id="@+id/sensorId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#0000"
-                android:hint="Custom Sensor Name"
-                android:inputType="text"
-                android:padding="16dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="#000000 "
-                android:textSize="16dp" />
-            </com.github.florent37.materialtextfield.MaterialTextField>
+                app:mtf_labelColor="@color/colorPrimary">
 
+                <EditText
+                    android:id="@+id/sensorId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:hint="Custom Sensor Name"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#000000 "
+                    android:textSize="16dp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
 
             <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/sensor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/view4"
-                android:layout_alignStart="@+id/view4"
                 android:layout_below="@+id/mtf3"
+                android:layout_alignStart="@+id/view4"
+                android:layout_alignEnd="@+id/view4"
                 android:layout_marginTop="24dp"
                 android:inputType="text"
                 android:padding="16dp"
-                app:ms_background_color="@color/backGround"
-                app:ms_text_color="@color/colorPrimary"
                 android:textColorHint="#ADCCE2"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:ms_background_color="@color/backGround"
+                app:ms_text_color="@color/colorPrimary" />
 
             <View
                 android:id="@+id/view4"
@@ -144,9 +139,9 @@
                 android:id="@+id/config"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/mtf3"
-                android:layout_alignStart="@+id/mtf3"
                 android:layout_below="@+id/view4"
+                android:layout_alignStart="@+id/mtf3"
+                android:layout_alignEnd="@+id/mtf3"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/angle2"
                 android:backgroundTint="@color/colorPrimary"
@@ -168,8 +163,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/wifi" />
-
-
 
 
         </RelativeLayout>
